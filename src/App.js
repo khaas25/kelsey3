@@ -1,23 +1,86 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Header from "./Components/Header/Header";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Main from "./Components/Main/Main";
+import Section from "./Components/Section/Section";
+import Carts from "./Components/Carts/Carts";
+import SingleCart from "./Components/SingleCart/SingleCart";
+import Videos from "./Components/Videos/Videos";
+import SingleVideo from "./Components/SingleVideo/SingleVideo";
+import AddProduct from "./Components/AddProduct/AddProduct";
+
+//SET UP ROUTES FOR THIS PROJECT
+// cREATE AT LEAST TWO ROUTES AND CREAT NAVBAR TO NAVIGATE BETWEEN TWO ROUTES.
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Header title="Home" />
+                <Main />
+              </>
+            }
+          />
+          <Route
+            path="/section"
+            element={
+              <>
+                <Header />
+                <Section />
+              </>
+            }
+          />
+          <Route
+            path="/carts"
+            element={
+              <>
+                <Carts />
+              </>
+            }
+          />
+          <Route
+            path="/singlecart"
+            element={
+              <>
+                <Header title="Single Cart" />
+                <SingleCart />
+              </>
+            }
+          />
+          <Route
+            path="/videos"
+            element={
+              <>
+                <Header title="Videos" />
+                <Videos />
+              </>
+            }
+          />
+          <Route
+            path="/singlevideo"
+            element={
+              <>
+                <Header title="Video Details" />
+                <SingleVideo />
+              </>
+            }
+          />
+          <Route
+            path="/addproduct"
+            element={
+              <>
+                <Header title="Add a Product" />
+                <AddProduct />
+              </>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

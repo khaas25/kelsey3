@@ -1,0 +1,28 @@
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px;
+}
+ul li {
+  margin: 20px;
+  color: white;
+}
+
+ul li:hover {
+  transform: scale(1.08);
+}
+
+ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+ul li a:hover {
+  color: red;
+}
+
+.container {
+  /* border: red 1px solid; */
+  margin-top: -90px;
+}

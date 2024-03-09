@@ -1,0 +1,29 @@
+.videocontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+}
+.commentscontainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: red solid 1px; */
+  margin-top: -20px;
+  margin-bottom: 100px;
+}
+.comments {
+  width: 60%;
+  margin: 0px 30px;
+}
+.commentscontainer button {
+  width: 80px;
+  height: 50px;
+  border-radius: 10px;
+}
+.commentscontainer button:hover {
+  color: white;
+  background-color: black;
+}

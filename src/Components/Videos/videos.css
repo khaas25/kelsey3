@@ -1,0 +1,17 @@
+.item {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  flex-wrap: wrap;
+  justify-content: center;
+
+  /* border: blue solid 1px; */
+}
+.video-item {
+  /* border: red solid 1px; */
+  margin: 5px 10px;
+  justify-content: center;
+  height: 300px;
+}
+.title {
+  font-size: 50px;
+}

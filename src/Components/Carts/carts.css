@@ -1,0 +1,18 @@
+.carts-container {
+  display: grid;
+  justify-content: space-around;
+  margin: 20px 50px 20px 50px;
+  /* border: red solid 2px; */
+  grid-template-columns: repeat(4, 1fr);
+}
+.cart-div {
+  border: black solid 2px;
+  padding: 15px;
+}
+.cart-div h3 {
+  text-align: center;
+}
+#carts-title {
+  text-align: center;
+  font-size: 60px;
+}
