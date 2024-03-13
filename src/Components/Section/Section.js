@@ -1,6 +1,7 @@
 import React from "react";
 
 export default function Section() {
+  //// once all product images are uploaded. make them visible. also, create a component where you can see all products that are in database.
   //  function addNewItemToApi() {
   //    var productName = document.getElementById("productName").value;
   //    var payload = {
@@ -38,4 +39,9 @@ export default function Section() {
   //   var allProducts = await Products.find();
   //   res.status(200).send(allProducts);
   // });
+   
+
+
+
 }
+

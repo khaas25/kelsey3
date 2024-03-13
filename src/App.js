@@ -8,6 +8,7 @@ import SingleCart from "./Components/SingleCart/SingleCart";
 import Videos from "./Components/Videos/Videos";
 import SingleVideo from "./Components/SingleVideo/SingleVideo";
 import AddProduct from "./Components/AddProduct/AddProduct";
+import ViewProducts from "./Components/ViewProducts/ViewProducts";
 
 //SET UP ROUTES FOR THIS PROJECT
 // cREATE AT LEAST TWO ROUTES AND CREAT NAVBAR TO NAVIGATE BETWEEN TWO ROUTES.
@@ -76,6 +77,15 @@ function App() {
               <>
                 <Header title="Add a Product" />
                 <AddProduct />
+              </>
+            }
+          />
+          <Route
+            path="/viewproducts"
+            element={
+              <>
+                <Header title="All Products" />
+                <ViewProducts />
               </>
             }
           />

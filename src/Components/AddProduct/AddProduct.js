@@ -8,6 +8,7 @@ import {
 import "react-notifications/lib/notifications.css";
 import { useFormik } from "formik";
 import { newProductsSchema } from "../../Validator/productsSchemaValidator";
+import { useEffect } from "react";
 
 export default function AddProduct() {
   //// Adding a new product from the form in return and sending to api.
@@ -16,10 +17,10 @@ export default function AddProduct() {
     var productName = document.getElementById("productName").value;
     var description = document.getElementById("description").value;
     var price = document.getElementById("price").value;
-    var images = document.getElementsByClassName("images");
+    var images = document.getElementsByClassName("images"); ///base 64 compresses images and converting to string format
     var selectedImages = [];
-    for (var i = 0; i < selectedImages.length; i++) {
-      if (images[i].value !== "null") {
+    for (var i = 0; i < images.length; i++) {
+      if (images[i].value !=="") {
         selectedImages.push(images[i].value);
       }
     }
@@ -29,6 +30,7 @@ export default function AddProduct() {
       price,
       images: selectedImages,
     };
+    console.log(payload);
     axios
       .post("http://localhost:8080/products", payload)
       .then((res) => {
@@ -58,6 +60,31 @@ export default function AddProduct() {
       addNewProduct();
     },
   });
+
+  useEffect(() => {
+    document
+      .getElementById("productImage")
+      .addEventListener("change", readFile2);
+  }, []);
+
+  function readFile2(e) {
+    //e stands for event
+    let files = e.target.files;
+    for (let i = 0; i < files.length; i++) {
+      (function (file) {
+        var reader = new FileReader(); //initializing base 64
+        reader.onload = () => {
+          var img = document.createElement("img");
+          img.src = reader.result;
+          document.getElementById("imagecontainer").appendChild(img);
+          document.getElementsByClassName("images")[i].value = reader.result; //link of image in b64 format is storing in input at string.
+          console.log(reader.result);
+        }; // converting file to base 64 link
+        reader.readAsDataURL(file);
+      })(files[i]);
+    }
+  }
+
   //// Return Section
   return (
     <div>
@@ -110,6 +137,10 @@ export default function AddProduct() {
             multiple
             id="productImage"
             value={values.file}
+            // onChange={(e) => {
+            //   handleChange(e);
+            //   readFile2(e);
+            // }}
             onChange={handleChange}
             onBlur={handleBlur}
           />
@@ -122,7 +153,7 @@ export default function AddProduct() {
           <input
             type="submit"
             className="submitbutton"
-            onSubmit={addNewProduct}
+            // onSubmit={addNewProduct}
           />
         </form>
       </div>

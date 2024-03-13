@@ -1,0 +1,21 @@
+.imagediv {
+  width: 400px;
+  border: blue 1px solid;
+}
+.singleproductcontainer {
+  border: red solid 2px;
+  padding: 40px;
+}
+/* .allproductscontainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+  gap: 10px;
+  justify-content: space-between;
+} */
+
+.allproductscontainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(calc(100% / 3 - 20px), 1fr));
+  gap: 20px;
+  justify-content: space-between;
+}
