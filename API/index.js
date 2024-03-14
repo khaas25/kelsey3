@@ -380,3 +380,15 @@ app.get("/products", async (req, res) => {
   var allProducts = await Products.find();
   res.status(200).send(allProducts);
 });
+
+// patch request - edit api
+
+app.get("/products/:id", async (req, res) => {
+  try {
+    const _id = req.params.id;
+    const findProduct = await Products.findById(_id);
+    res.status(200).send(findProduct);
+  } catch (error) {
+    res.status(500).send("Internal Server Error");
+  }
+});

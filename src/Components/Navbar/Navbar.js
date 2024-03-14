@@ -18,6 +18,10 @@ export default function Navbar() {
           {" "}
           <Link to="/carts">Carts</Link>{" "}
         </li>
+        <li className="links">
+          {" "}
+          <Link to="/viewproducts">Products</Link>{" "}
+        </li>
       </ul>
     </div>
   );

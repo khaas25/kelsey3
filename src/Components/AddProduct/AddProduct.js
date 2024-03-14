@@ -9,18 +9,23 @@ import "react-notifications/lib/notifications.css";
 import { useFormik } from "formik";
 import { newProductsSchema } from "../../Validator/productsSchemaValidator";
 import { useEffect } from "react";
+import { useRef } from "react";
 
 export default function AddProduct() {
   //// Adding a new product from the form in return and sending to api.
 
+  const productNameRef = useRef();
+  const descriptionRef = useRef();
+  const priceRef = useRef();
+
   function addNewProduct() {
-    var productName = document.getElementById("productName").value;
-    var description = document.getElementById("description").value;
-    var price = document.getElementById("price").value;
+    var productName = productNameRef.current.value;
+    var description = descriptionRef.current.value;
+    var price = priceRef.current.value;
     var images = document.getElementsByClassName("images"); ///base 64 compresses images and converting to string format
     var selectedImages = [];
     for (var i = 0; i < images.length; i++) {
-      if (images[i].value !=="") {
+      if (images[i].value !== "") {
         selectedImages.push(images[i].value);
       }
     }
@@ -36,9 +41,9 @@ export default function AddProduct() {
       .then((res) => {
         console.log(res);
         NotificationManager.success("Product has been Uploaded");
-        document.getElementById("productName").value = "";
-        document.getElementById("price").value = "";
-        document.getElementById("description").value = "";
+        productNameRef.current.value = "";
+        priceRef.current.value = "";
+        descriptionRef.current.value = "";
         document.getElementById("imagecontainer").innerHTML = "";
       })
       .catch((e) => {
@@ -101,6 +106,7 @@ export default function AddProduct() {
             value={values.productName}
             onChange={handleChange}
             onBlur={handleBlur}
+            ref={productNameRef}
           />
           <br />
           <br />
@@ -113,6 +119,7 @@ export default function AddProduct() {
             value={values.description}
             onChange={handleChange}
             onBlur={handleBlur}
+            ref={descriptionRef}
           />
           <br />
           <br />
@@ -126,6 +133,7 @@ export default function AddProduct() {
             value={values.price}
             onChange={handleChange}
             onBlur={handleBlur}
+            ref={priceRef}
           />
           <br />
           <br />
